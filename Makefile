@@ -19,8 +19,9 @@ $(LMBD_DIR)/.git/HEAD:
 	# clone main repo if needed...
 	git clone --recurse-submodules $(LMBD_REPO) $(LMBD_DIR)
 	cd $(LMBD_DIR) && git checkout indexable_strip_base
+	cd $(LMBD_DIR) && ln -s $(VENV_DIR)
 
-clone-repo: $(LMBD_DIR)/.git/HEAD
+clone-repo: $(VENV_DIR)/bin/activate $(LMBD_DIR)/.git/HEAD
 	@echo -e " --- ok: $@"
 
 $(BOARD_DIR)/.git/HEAD:

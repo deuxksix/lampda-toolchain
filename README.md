@@ -22,6 +22,7 @@ Your mileage may vary, but here is what to expect after setup:
 │   ├── README.md
 │   ├── electrical
 │   ├── flashInfo
+│   ├── venv
 │   └── src
 ├── LampDa_nRF52_Arduino
 ├── Makefile
