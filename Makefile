@@ -102,4 +102,4 @@ clean: clean-patches
 mr_proper: clean
 	@echo -e "\n --- $@"
 	# removing repository...
-	rm -rf $(BOARD_DIR)
+	rm -rf $(BOARD_DIR) $(VENV_DIR) $(LMBD_REPO)

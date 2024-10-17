@@ -55,4 +55,6 @@ $HOME/.arduino*/packages/adafruit/hardware/
     └── $VERSION
 ```
 
-Restore your `nrf52` install with `make clean` or `make mr_proper` after use.
+Restore your `nrf52` install with `make clean`.
+
+**Note: using `make mr_proper` will remove cloned repositories without warning.**
