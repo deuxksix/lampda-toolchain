@@ -1,0 +1,26 @@
+diff --git a/cores/nRF5/common_func.h b/cores/nRF5/common_func.h
+index 7432423b..793e6f11 100644
+--- a/cores/nRF5/common_func.h
++++ b/cores/nRF5/common_func.h
+@@ -105,7 +105,7 @@
+  * Nth position is the same as the number of arguments
+  * - ##__VA_ARGS__ is used to deal with 0 paramerter (swallows comma)
+  *------------------------------------------------------------------*/
+-#define VA_ARGS_NUM(...) 	 NARG_(_0, ##__VA_ARGS__,_RSEQ_N())
++#define VA_ARGS_NUM(...) 	 NARG_(_0 __VA_OPT__(,) ##__VA_ARGS__,_RSEQ_N())
+ #define NARG_(...)   _GET_NTH_ARG(__VA_ARGS__)
+ #define _GET_NTH_ARG( \
+           _1, _2, _3, _4, _5, _6, _7, _8, _9,_10, \
+diff --git a/cores/nRF5/utility/AdaCallback.h b/cores/nRF5/utility/AdaCallback.h
+index 887f0bf3..d08202ab 100644
+--- a/cores/nRF5/utility/AdaCallback.h
++++ b/cores/nRF5/utility/AdaCallback.h
+@@ -79,7 +79,7 @@ typedef void (*adacb_5arg_t) (uint32_t, uint32_t, uint32_t, uint32_t, uint32_t);
+
+ #define _GET_6TH_ARG(_0, _1, _2, _3, _4, _5, _6, ... )  _6
+
+-#define _ADA_CB_ARGS(...)  _GET_6TH_ARG(_0, ##__VA_ARGS__, _ADA_CB_ARGS_5, _ADA_CB_ARGS_4, _ADA_CB_ARGS_3, _ADA_CB_ARGS_2, _ADA_CB_ARGS_1, _ADA_CB_ARGS_0)(__VA_ARGS__)
++#define _ADA_CB_ARGS(...)  _GET_6TH_ARG(_0 __VA_OPT__(,) ##__VA_ARGS__, _ADA_CB_ARGS_5, _ADA_CB_ARGS_4, _ADA_CB_ARGS_3, _ADA_CB_ARGS_2, _ADA_CB_ARGS_1, _ADA_CB_ARGS_0)(__VA_ARGS__)
+
+ /**
+  * Schedule an function and parameters to be invoked in Ada Callback Task
